@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Tools are built from crates.io once, then cached. Versions match rokit.toml.
+      - name: Cache Roblox tooling
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/bin/rojo
+            ~/.cargo/bin/selene
+            ~/.cargo/bin/stylua
+          key: roblox-tools-${{ runner.os }}-${{ hashFiles('rokit.toml') }}
+
+      - name: Install tooling
+        run: |
+          command -v rojo   || cargo install rojo   --version 7.7.1  --locked
+          command -v selene || cargo install selene --version 0.31.0 --locked
+          command -v stylua || cargo install stylua --version 2.6.0  --locked
+
+      - name: Format check (StyLua)
+        run: stylua --check src
+
+      - name: Lint (selene)
+        run: selene src
+
+      - name: Build place (Rojo)
+        run: rojo build default.project.json -o build.rbxlx

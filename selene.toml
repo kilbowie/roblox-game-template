@@ -1,0 +1,5 @@
+std = "roblox"
+
+[lints]
+# Services deliberately expose functions that the template's G1 code does not call yet.
+unused_variable = "warn"

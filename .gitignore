@@ -1,0 +1,16 @@
+# Built place files (Rojo output) — the source of truth is src/
+*.rbxl
+*.rbxlx
+*.rbxm
+*.rbxmx
+!assets/**/*.rbxm
+
+# Generated tooling files
+roblox.yml
+sourcemap.json
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
