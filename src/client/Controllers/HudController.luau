@@ -28,17 +28,17 @@ function HudController.Start(screenGui: ScreenGui, onShop: () -> ()): Hud
 	local autoRemote = Net.event("SetAutoTrain")
 
 	-- Stats panel, top left
-	local powerLabel = Ui.label({ Size = UDim2.new(1, 0, 0.45, 0), Text = "Power 0" })
+	local powerLabel = Ui.label({ Size = UDim2.fromScale(1, 0.45), Text = "Power 0" })
 	local stageLabel = Ui.label({
-		Position = UDim2.new(0, 0, 0.47, 0),
-		Size = UDim2.new(1, 0, 0.25, 0),
+		Position = UDim2.fromScale(0, 0.47),
+		Size = UDim2.fromScale(1, 0.25),
 		Text = "Stage 1",
 		TextColor3 = Ui.Colours.Muted,
 		Font = Enum.Font.GothamMedium,
 	})
 	local boostLabel = Ui.label({
-		Position = UDim2.new(0, 0, 0.74, 0),
-		Size = UDim2.new(1, 0, 0.24, 0),
+		Position = UDim2.fromScale(0, 0.74),
+		Size = UDim2.fromScale(1, 0.24),
 		Text = "",
 		TextColor3 = Ui.Colours.Good,
 	})
@@ -46,8 +46,8 @@ function HudController.Start(screenGui: ScreenGui, onShop: () -> ()): Hud
 		Name = "Stats",
 		Parent = screenGui,
 		AnchorPoint = Vector2.new(0, 0),
-		Position = UDim2.new(0, 16, 0, 16),
-		Size = UDim2.new(0, 260, 0, 110),
+		Position = UDim2.fromOffset(16, 16),
+		Size = UDim2.fromOffset(260, 110),
 		BackgroundColor3 = Ui.Colours.Panel,
 		BackgroundTransparency = 0.15,
 	}, { Ui.corner(14), Ui.padding(12), powerLabel, stageLabel, boostLabel })
@@ -58,7 +58,7 @@ function HudController.Start(screenGui: ScreenGui, onShop: () -> ()): Hud
 		Parent = screenGui,
 		AnchorPoint = Vector2.new(0.5, 1),
 		Position = UDim2.new(0.5, 0, 1, -24),
-		Size = UDim2.new(0, 220, 0, 72),
+		Size = UDim2.fromOffset(220, 72),
 		Text = "TRAIN +1",
 	})
 	trainButton.Activated:Connect(function()
@@ -77,7 +77,7 @@ function HudController.Start(screenGui: ScreenGui, onShop: () -> ()): Hud
 		Parent = screenGui,
 		AnchorPoint = Vector2.new(1, 0.5),
 		Position = UDim2.new(1, -16, 0.5, 0),
-		Size = UDim2.new(0, 170, 0, 260),
+		Size = UDim2.fromOffset(170, 260),
 		BackgroundTransparency = 1,
 	}, {
 		Ui.make("UIListLayout", {

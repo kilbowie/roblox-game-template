@@ -199,7 +199,9 @@ local function warnAboutUnconfigured()
 		end
 	end
 	if #missing > 0 then
-		warn(`[Monetisation] Not configured yet (id = 0): {table.concat(missing, ", ")}. See docs/MONETISATION.md.`)
+		warn(
+			`[Monetisation] Not configured yet (id = 0): {table.concat(missing, ", ")}. See docs/MONETISATION.md.`
+		)
 	end
 end
 

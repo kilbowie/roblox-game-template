@@ -40,19 +40,24 @@ local function fetchPrice(id: number, infoType: Enum.InfoType, label: TextLabel)
 	end)
 end
 
-local function makeRow(list: Instance, order: number, title: string, description: string): (TextLabel, TextButton)
+local function makeRow(
+	list: Instance,
+	order: number,
+	title: string,
+	description: string
+): (TextLabel, TextButton)
 	local priceLabel = Ui.label({
 		AnchorPoint = Vector2.new(1, 0),
 		Position = UDim2.new(1, -120, 0, 6),
-		Size = UDim2.new(0, 90, 0, 26),
+		Size = UDim2.fromOffset(90, 26),
 		Text = "",
 		TextXAlignment = Enum.TextXAlignment.Right,
 		TextColor3 = Ui.Colours.Accent,
 	})
 	local buyButton = Ui.button({
 		AnchorPoint = Vector2.new(1, 0.5),
-		Position = UDim2.new(1, 0, 0.5, 0),
-		Size = UDim2.new(0, 104, 0, 44),
+		Position = UDim2.fromScale(1, 0.5),
+		Size = UDim2.fromOffset(104, 44),
 		Text = "BUY",
 	})
 	Ui.make("Frame", {
@@ -65,7 +70,7 @@ local function makeRow(list: Instance, order: number, title: string, description
 		Ui.padding(10),
 		Ui.label({ Size = UDim2.new(1, -230, 0, 28), Text = title }),
 		Ui.label({
-			Position = UDim2.new(0, 0, 0, 30),
+			Position = UDim2.fromOffset(0, 30),
 			Size = UDim2.new(1, -120, 0, 20),
 			Text = description,
 			Font = Enum.Font.GothamMedium,
@@ -82,21 +87,21 @@ function ShopController.Start(screenGui: ScreenGui): () -> ()
 	local showUnconfigured = RunService:IsStudio()
 
 	local list = Ui.make("ScrollingFrame", {
-		Position = UDim2.new(0, 0, 0, 56),
+		Position = UDim2.fromOffset(0, 56),
 		Size = UDim2.new(1, 0, 1, -56),
 		BackgroundTransparency = 1,
 		BorderSizePixel = 0,
 		ScrollBarThickness = 6,
 		AutomaticCanvasSize = Enum.AutomaticSize.Y,
-		CanvasSize = UDim2.new(0, 0, 0, 0),
+		CanvasSize = UDim2.fromOffset(0, 0),
 	}, {
 		Ui.make("UIListLayout", { Padding = UDim.new(0, 8), SortOrder = Enum.SortOrder.LayoutOrder }),
 	})
 
 	local closeButton = Ui.button({
 		AnchorPoint = Vector2.new(1, 0),
-		Position = UDim2.new(1, 0, 0, 0),
-		Size = UDim2.new(0, 44, 0, 44),
+		Position = UDim2.fromScale(1, 0),
+		Size = UDim2.fromOffset(44, 44),
 		Text = "X",
 	})
 
@@ -104,8 +109,8 @@ function ShopController.Start(screenGui: ScreenGui): () -> ()
 		Name = "Shop",
 		Parent = screenGui,
 		AnchorPoint = Vector2.new(0.5, 0.5),
-		Position = UDim2.new(0.5, 0, 0.5, 0),
-		Size = UDim2.new(0.5, 0, 0.65, 0),
+		Position = UDim2.fromScale(0.5, 0.5),
+		Size = UDim2.fromScale(0.5, 0.65),
 		BackgroundColor3 = Ui.Colours.Background,
 		Visible = false,
 	}, {

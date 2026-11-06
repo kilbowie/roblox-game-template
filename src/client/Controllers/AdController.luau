@@ -32,7 +32,7 @@ function AdController.Start(slot: Frame)
 	local button = Ui.button({
 		Name = "FreeBoost",
 		Parent = slot,
-		Size = UDim2.new(1, 0, 1, 0),
+		Size = UDim2.fromScale(1, 1),
 		BackgroundColor3 = Ui.Colours.Good,
 		Text = "FREE 2x BOOST",
 		Visible = false,
