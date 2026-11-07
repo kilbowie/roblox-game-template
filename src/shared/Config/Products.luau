@@ -33,17 +33,17 @@ local Products = {}
 -- Game passes: bought once, owned forever.
 Products.Passes = {
 	DoubleGains = {
-		id = 2075703049,
+		id = 0,
 		name = "2x Gains",
 		description = "Double every gain, forever.",
 	},
 	AutoTrain = {
-		id = 2075043029,
+		id = 0,
 		name = "Auto Train",
 		description = "Trains for you while you explore.",
 	},
 	VIP = {
-		id = 2075019009,
+		id = 0,
 		name = "VIP",
 		description = "+25% gains on everything.",
 	},
@@ -52,7 +52,7 @@ Products.Passes = {
 -- Developer products: can be bought again and again.
 Products.DevProducts = {
 	Boost2x15m = {
-		id = 3729047303,
+		id = 0,
 		name = "2x Boost (15 min)",
 		description = "Double gains for 15 minutes. Stacks.",
 		grant = "boost",
@@ -60,21 +60,21 @@ Products.DevProducts = {
 		seconds = 900,
 	},
 	PowerPackSmall = {
-		id = 3729047488,
+		id = 0,
 		name = "Power Pack",
 		description = "Instant Power, scaled to your stage.",
 		grant = "power",
 		amount = 250,
 	},
 	PowerPackLarge = {
-		id = 3729047633,
+		id = 0,
 		name = "Mega Power Pack",
 		description = "A big instant Power jump, scaled to your stage.",
 		grant = "power",
 		amount = 2000,
 	},
 	AdBoost = {
-		id = 3729048111,
+		id = 0,
 		name = "Free 2x Boost",
 		description = "Granted for watching a rewarded video ad.",
 		grant = "boost",
